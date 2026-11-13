@@ -1,0 +1,152 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080510;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #e5b3ff;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px #b64cff;
+    margin-bottom: 30px;
+}
+
+#heartButton {
+    font-size: 110px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(0 0 25px #b64cff);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.hidden {
+    display: none;
+}
+
+#flowerScreen {
+    animation: fadeIn 2s ease;
+}
+
+.flower {
+    position: relative;
+    width: 240px;
+    height: 340px;
+    margin: auto;
+}
+
+.petals {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    z-index: 2;
+}
+
+.petal {
+    position: absolute;
+    width: 72px;
+    height: 105px;
+    left: -36px;
+    top: -90px;
+    border-radius: 50% 50% 45% 45%;
+    background: linear-gradient(#ffb4ee, #b64cff);
+    transform-origin: center 90px;
+    box-shadow: 0 0 20px #a64dff;
+    animation: bloom 2s ease-out both;
+}
+
+.petal:nth-child(1) { --angle: 0deg; }
+.petal:nth-child(2) { --angle: 60deg; }
+.petal:nth-child(3) { --angle: 120deg; }
+.petal:nth-child(4) { --angle: 180deg; }
+.petal:nth-child(5) { --angle: 240deg; }
+.petal:nth-child(6) { --angle: 300deg; }
+
+@keyframes bloom {
+    from {
+        transform: rotate(var(--angle)) scale(0);
+    }
+    to {
+        transform: rotate(var(--angle)) scale(1);
+    }
+}
+
+.center {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: -25px;
+    top: -25px;
+    border-radius: 50%;
+    background: #ffe66d;
+    box-shadow: 0 0 18px #ffe66d;
+    z-index: 3;
+}
+
+.stem {
+    position: absolute;
+    width: 12px;
+    height: 220px;
+    background: linear-gradient(90deg, #176b35, #48d878);
+    left: 114px;
+    top: 125px;
+    border-radius: 10px;
+}
+
+.leaf {
+    position: absolute;
+    width: 75px;
+    height: 38px;
+    background: #31b85b;
+    top: 225px;
+}
+
+.leaf-left {
+    left: 45px;
+    border-radius: 90% 0 90% 0;
+    transform: rotate(20deg);
+}
+
+.leaf-right {
+    right: 45px;
+    border-radius: 0 90% 0 90%;
+    transform: rotate(-20deg);
+}
+
+h2 {
+    color: #e5b3ff;
+    margin-top: 15px;
+}
+
+p {
+    margin-top: 12px;
+    color: #e8c8f5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
